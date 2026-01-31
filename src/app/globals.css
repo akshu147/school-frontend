@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
   --background: oklch(0.07 0.005 260);
   --foreground: oklch(0.98 0 0);
@@ -13,7 +15,7 @@
   --secondary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.16 0.008 260);
   --muted-foreground: oklch(0.55 0 0);
-  --accent: oklch(63.024% 0.14886 156.824 / 0.911);
+  --accent: oklch(69.567% 0.1278 226.887 / 0.911);
   --accent-foreground: oklch(0.12 0.01 260);
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
@@ -75,7 +77,7 @@
   --warning: oklch(0.78 0.15 85);
 }
 
-:root {
+@theme inline {
   --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
   --font-heading: "Space Grotesk", "Space Grotesk Fallback", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", monospace;
@@ -121,12 +123,10 @@
 
 @layer base {
   * {
-    border-color: var(--border);
-    outline-color: var(--ring);
+    @apply border-border outline-ring/50;
   }
   body {
-    background-color: var(--background);
-    color: var(--foreground);
+    @apply bg-background text-foreground;
   }
 }
 
